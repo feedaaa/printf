@@ -14,13 +14,14 @@
 
 int	ft_printptr(void *ptr)
 {
-	int	len;
+	int	len;  // Variable to store the total length of printed characters
 
-	len = 0;
-	len += write(1, "0x", 2);
-	if (ptr == 0)
-		len += write(1, "0", 1);
+	len = 0; // initialize variable to 0
+	len += ft_printstr("0x"); // put 0x before the address starts
+	if (ptr == 0) //if ptr is equal to null then put a 0
+		len += ft_printstr("0");
 	else
-		len += ft_printhex((unsigned long long)ptr, 'x');
+		len += ft_printhex((unsigned long long)ptr, 'x'); // If the pointer is not NULL, print its hexadecimal representation
 	return (len);
+	// Return the total length of printed characters
 }
